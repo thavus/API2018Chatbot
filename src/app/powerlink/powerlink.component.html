@@ -151,8 +151,6 @@
   }</script><script type="text/javascript">g_swLoadTime = new StopWatch(g_loadTime);
 
     if (window.CustomEvent){
-        CustomEvent.fireAll("ck_updated", "1078c8cddbe55b04f4cb9893db96196126dfa9021915f35a905d76f8b81f8ec7e72d7e90");
-      CustomEvent.fireTop("navigation.complete", window);
   }
 
     addLoadEvent( function() {
@@ -171,28 +169,7 @@
     }
 
       if (typeof g_ck != 'undefined') {
-        CustomEvent.observe("ck_updated", function(ck) { g_ck = ck; });
-        CustomEvent.fireAll("ck_updated", "1078c8cddbe55b04f4cb9893db96196126dfa9021915f35a905d76f8b81f8ec7e72d7e90");CustomEvent.fireTop('user.impersonation', '');}try {
-              var helpico = getTopWindow().document.getElementById("help_ico");
 
-              if (helpico) {
-                var urlname=window.location.pathname.split("?");
-                var search_str = window.location.search;
-
-                // if this is a form, extract the record's sys_id...
-                var sys_id_loc = search_str.search(/sys_id=[0-9a-f]{32}/i);
-                var sys_id_str = (sys_id_loc != -1) ? search_str.substr(sys_id_loc, 39) : null;
-
-                // make the URL to our context help processor...
-                var url_search = "?sysparm_url=" + urlname[0];
-                if (sys_id_loc != -1)
-                   url_search += "&" + sys_id_str;
-
-                helpico.href="context_help.do" + url_search;
-              }
-            } catch (exception) {}synchCache();
-      pageLoaded();
-    });
 
     function synchCache() {
       try {
@@ -291,7 +268,7 @@
       enablePreviewOnHover: false,
       isCalendarV2Enabled : false,
       fixedHeaders : true
-    };</script><script type="text/javascript" src="https://servicenow.pncint.net/selfserve/POWERLINK Online_files/js_includes_amb.jsx"></script><!--googleoff: all--><noscript>This site requires JavaScript to be enabled</noscript> <!--googleon: all--><script type="text/javascript" src="https://servicenow.pncint.net/selfserve/POWERLINK Online_files/js_guided_tours_includes.jsx"></script></head><body ontouchend="CustomEvent.fireAll(&#39;body_clicked&#39;, event);" onclick="CustomEvent.fireAll(&#39;body_clicked&#39;, event);" class="windows chrome       non_standard_lists" data-formname="view_content"><script type="text/javascript" src="https://servicenow.pncint.net/selfserve/POWERLINK Online_files/js_includes_catalog.jsx"></script><link type="text/css" rel="stylesheet" href="https://servicenow.pncint.net/selfserve/js_includes_catalog.cssx"><script>var chartHelpers = window.chartHelpers || {};
+    };</script><script type="text/javascript" src="https://servicenow.pncint.net/selfserve/POWERLINK Online_files/js_includes_amb.jsx"></script><!--googleoff: all--><noscript>This site requires JavaScript to be enabled</noscript> <!--googleon: all--><script type="text/javascript" src="https://servicenow.pncint.net/selfserve/POWERLINK Online_files/js_guided_tours_includes.jsx"></script></head><body  class="windows chrome       non_standard_lists" data-formname="view_content"><script type="text/javascript" src="https://servicenow.pncint.net/selfserve/POWERLINK Online_files/js_includes_catalog.jsx"></script><link type="text/css" rel="stylesheet" href="https://servicenow.pncint.net/selfserve/js_includes_catalog.cssx"><script>var chartHelpers = window.chartHelpers || {};
       chartHelpers.i18n = chartHelpers.i18n || {};
 
       chartHelpers.i18n.building = "Building chart, please wait...";
@@ -1308,7 +1285,7 @@ function msieversion(){
 
 
 
-      <div id="menu_d8254cb9b043610089c78c32fc7b4ccb" class="cms_menu_super_menu_bar" onmouseover="enterSuperMenuBlock(&#39;d8254cb9b043610089c78c32fc7b4ccb&#39;)" onmouseout="leftSuperMenuBlock(&#39;d8254cb9b043610089c78c32fc7b4ccb&#39;)">
+      <div id="menu_d8254cb9b043610089c78c32fc7b4ccb" class="cms_menu_super_menu_bar">
 
 
 
@@ -1616,7 +1593,7 @@ function getCustomCmsScrollTop() {
                        <li>
 
 
-                       <a id="menu_e4254cb9b043610089c78c32fc7b4cd1" class="cms_menu_dropdown_link" onmouseover="this.mouseOnLink=true;contextShow(event, &#39;context_menu_section_e4254cb9b043610089c78c32fc7b4cd1&#39;, 1000, grabOffsetTop(this) + this.offsetHeight - getCustomCmsScrollTop(),  grabOffsetLeft(this));event.cancelBubble=true" onmouseout="this.mouseOnLink=false;contextTimeout(event, &#39;menu_section_e4254cb9b043610089c78c32fc7b4cd1&#39;, 100)" href="https://servicenow.pncint.net/selfserve/order_things.do" target="">
+                       <a id="menu_e4254cb9b043610089c78c32fc7b4cd1" class="cms_menu_dropdown_link" href="https://servicenow.pncint.net/selfserve/order_things.do" target="">
                        Place an Order</a></li>
 
 
@@ -1667,7 +1644,7 @@ function getCustomCmsScrollTop() {
                        <li>
 
 
-                       <a id="menu_f4254cb9b043610089c78c32fc7b4cd6" class="cms_menu_dropdown_link" onmouseover="this.mouseOnLink=true;contextShow(event, &#39;context_menu_section_f4254cb9b043610089c78c32fc7b4cd6&#39;, 1000, grabOffsetTop(this) + this.offsetHeight - getCustomCmsScrollTop(),  grabOffsetLeft(this));event.cancelBubble=true" onmouseout="this.mouseOnLink=false;contextTimeout(event, &#39;menu_section_f4254cb9b043610089c78c32fc7b4cd6&#39;, 100)" href="https://servicenow.pncint.net/selfserve/helpful_resources.do" target="">
+                       <a id="menu_f4254cb9b043610089c78c32fc7b4cd6" class="cms_menu_dropdown_link" href="https://servicenow.pncint.net/selfserve/helpful_resources.do" target="">
                        Get Help</a></li></ul>&nbsp;
         </div></td></tr></tbody></table></div></div></div></div><div class="search-row"><div class="wrap" dropzone="true" id="dropzone5"><div class="drop-zone-content"><span style="display: none;">IE BUMPER</span>
 
@@ -1679,7 +1656,7 @@ function getCustomCmsScrollTop() {
     <label for="sysparm_search" style="display:none">Search</label>
     <input id="sysparm_search" name="sysparm_search" autocomplete="off" onload="this.style.color = &#39;#999&#39;;if(this.value==&#39;&#39;){ this.value=&#39;Search&#39;; this.style.color=&#39;#BBB&#39;;}" onfocus="this.select();this.style.color = &#39;#000&#39;;if (!this.ac) { addLoadEvent(function() {var e = $(&#39;sysparm_search&#39;);              if (!e.ac) new AJAXTextSearchCompleter(&#39;global_search_completer&#39;, &#39;sysparm_search&#39;, &#39;right&#39;,                  $$(&#39;span.globalSearch&#39;)[0]);}) } else this.ac.cacheClear();if(this.value==&#39;Search&#39;){ this.value=&#39;&#39;; this.style.color=&#39;#000&#39;;}" onblur="this.style.color = &#39;#999&#39;;if(this.value==&#39;&#39;){ this.value=&#39;Search&#39;; this.style.color=&#39;#BBB&#39;;}" accesskey="s" onkeydown="return acReferenceKeyDown(this, event);" onkeypress="return acReferenceKeyPress(this, event);" onkeyup="return acReferenceKeyUp(this, event);" function="$(&#39;textsearch&#39;).submit()" value="Search" title="" alt="Search" data-original-title="Search" role="combobox" aria-autocomplete="list" aria-owns="global_search_completer" aria-activedescendant="" style="color: rgb(187, 187, 187);">
   <input type="image" class="searchGlass" src="https://servicenow.pncint.net/selfserve/search_icon.pngx" height="30px" width="30px" onfocus="this.src =&#39;search_icon_bl.pngx&#39;" onclick="return acReferenceKeyUp(this, event);" function="$(&#39;textsearch&#39;).submit()" title="Search" alt="Search" data-original-title="Search">
-    <a style="margin-left:4px" onclick="contextShow(event, &#39;search&#39;, 200, grabOffsetTop(this) + 20, 0, grabOffsetLeft(this) + 12);event.cancelBubble=true;" title="Recent searches" data-original-title="Recent searches">
+    <a style="margin-left:4px" title="Recent searches" data-original-title="Recent searches">
         <img border="0" id="imgText2" src="https://servicenow.pncint.net/selfserve/images/drop_down.gifx" alt="Recent searches"></a></span></form>
   <script eval="true">var ajax = new GlideAjax("TextSearchAjax");
     ajax.addParam("sysparm_name", "recent");
@@ -1913,4 +1890,8 @@ function getCustomCmsScrollTop() {
             addLoadEvent(function() {
               CustomEvent.fireTop("request_complete", window.location);
             });</script><script src="https://servicenow.pncint.net/selfserve/POWERLINK Online_files/z_last_include.js.download"></script><span id="ac.status" role="status" aria-live="polite" class="sr-only"></span><span aria-live="polite" class="sr-only"></span><script type="text/html" id="popup_template"><div class="popup popup_form" style=""><iframe src="$src" style=""></iframe></div></script><div id="f3a84d0f3a9a50f3a1270f3a5940f3a7" style="position: absolute; top: -9999px; left: -9999px; width: 0px; height: 0px;">[object HTMLAudioElement]</div><div id="f3a0680f3a8840f3a8a80f3ab3b0f3af" style="position: absolute; top: -9999px; left: -9999px; width: 0px; height: 0px;">[object HTMLAudioElement]</div><div id="page_timing_div" class="timingDiv"><span class="timing_span" id="glide:timing_widget" style="display:none">
-         <a role="button" aria-controls="page_timing_details" aria-expanded="false" tabindex="0" class="timing_span">browser: 1952<span class="sr-only">Toggle browser timing details</span></a><span style="position:relative; width: 1px;" role="region" aria-label="Browser Timing Detail" aria-hidden="true">&nbsp;<span style="position:absolute; bottom:0px; right:0px"><span id="page_timing_details"></span><a aria-hidden="true"><div>&nbsp;</div></a></span></span><span class="timing_graph" data-aria-label="Show Timing Breakdown" role="button" tabindex="0" aria-label="Show Timing Breakdown" aria-expanded="false"><span class="timing_network" title="Network 173ms" style="width: 7%;"></span><span class="timing_server" title="Server 393ms" style="width: 16%;"></span><span class="timing_browser" title="Browser 1952ms" style="width: 78%;"></span></span></span></div><div id="global_search_completer" class="ac_dropdown" role="listbox" style="border: 1px solid black; visibility: hidden; display: none; position: absolute; background-color: white; z-index: 20000;"></div></body></html>
+         <a role="button" aria-controls="page_timing_details" aria-expanded="false" tabindex="0" class="timing_span">browser: 1952<span class="sr-only">Toggle browser timing details</span></a><span style="position:relative; width: 1px;" role="region" aria-label="Browser Timing Detail" aria-hidden="true">&nbsp;<span style="position:absolute; bottom:0px; right:0px"><span id="page_timing_details"></span><a aria-hidden="true"><div>&nbsp;</div></a></span></span><span class="timing_graph" data-aria-label="Show Timing Breakdown" role="button" tabindex="0" aria-label="Show Timing Breakdown" aria-expanded="false"><span class="timing_network" title="Network 173ms" style="width: 7%;"></span><span class="timing_server" title="Server 393ms" style="width: 16%;"></span><span class="timing_browser" title="Browser 1952ms" style="width: 78%;"></span></span></span></div><div id="global_search_completer" class="ac_dropdown" role="listbox" style="border: 1px solid black; visibility: hidden; display: none; position: absolute; background-color: white; z-index: 20000;"></div>
+
+      <app-chatbot-window></app-chatbot-window>
+
+       </body></html>

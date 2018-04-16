@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AngularDraggableModule } from 'angular2-draggable';
 
 import { AppComponent } from './app.component';
 import { ChatbotWindowComponent } from './chatbot-window/chatbot-window.component';
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
       appRoutes,
       //{ enableTracing: true } // <-- debugging purposes only
     ),
+    AngularDraggableModule,
     BrowserModule,
     FormsModule
   ],

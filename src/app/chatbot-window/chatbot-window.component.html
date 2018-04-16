@@ -1,3 +1,15 @@
-<p>
-  chatbot-window works!
-</p>
+<div class="drag-boundary" #myBounds>
+  <div ngDraggable
+  class="app-chatbot-window drag-block"
+  [ngClass]="{ 'top-b': !edge?.top, 'bottom-b': !edge?.bottom, 'left-b': !edge?.left, 'right-b': !edge?.right }"
+  [ngDraggable]="draggable"
+  (edge)="checkEdge($event)"
+  [bounds]="myBounds"
+  [inBounds]="inBounds">
+    chatbot window
+
+  <div (click)="handlePopUp()" class="fixed-chatIcon">
+    non draggable
+  </div>
+  </div>
+</div>
