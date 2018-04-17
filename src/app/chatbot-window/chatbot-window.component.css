@@ -1,10 +1,16 @@
 .app-chatbot-window {
+  font-family: 'Roboto', sans-serif !important;
   position:absolute;
   width: 265px;
   height: 450px;
-  background-color: white;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7f7f7+0,ffffff+23,ffffff+53,ffffff+82,ededed+100 */
+background: rgb(247,247,247); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 23%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 82%, rgba(237,237,237,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(255,255,255,1) 23%,rgba(255,255,255,1) 53%,rgba(255,255,255,1) 82%,rgba(237,237,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(247,247,247,1) 0%,rgba(255,255,255,1) 23%,rgba(255,255,255,1) 53%,rgba(255,255,255,1) 82%,rgba(237,237,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
   right: 130px;
-  background-color: brown;
+overflow:hidden;
 }
 
 .drag-boundary{
@@ -17,9 +23,120 @@
 
 .fixed-chatIcon{
   position:absolute;
-  width: 50px;
+  width: 30px;
   height: 50px;
-  background-color: black;
+  background-color: orange;
   right: 0;
-  bottom: 0;
+  bottom: 160px;
+}
+.topBarHolder{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  padding:0;
+  margin:0;
+  width:100%;
+  height:40px;
+  overflow: hidden;
+  cursor:move;
+}
+.topBarTxt{
+  color:#444c64;
+  position:relative;
+  width:100%;
+  text-align:center;
+  font-size:12px;
+  font-weight:500;
+  top: 5px;
+}
+.topBar{
+  padding:0;
+  margin:0;
+  width:100%;
+  height:30px;
+  background: white;
+  background-color: rgba(255,255,255,0.93);
+  box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.1);
+  display: table;
+}
+.topBar > div {
+  display: table-cell;
+  width: 33%;
+}
+
+[hidden]{
+  display: none !important;
+}
+
+.closeArrow{
+  cursor: pointer;
+  position:relative;
+  width:10px;
+  fill: pink;
+  top:6px;
+  left:20px;
+}
+
+div.scrollBox {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 78%;
+
+}
+
+div.scrollBox::-webkit-scrollbar {
+  width: 5px;
+  border: none;
+  background-color: #fff;
+}
+
+div.scrollBox::-webkit-scrollbar-thumb {
+  border: none;
+  background-color: #aeaeae;
+}
+div.scrollbox::-webkit-scrollbar-track {
+  box-shadow: 0 0 rgba(0,0,0,0) !important;
+  -webkit-box-shadow: inset 0 0 rgba(0,0,0,0) !important;
+  background-color: #fff;
+}
+
+.inputHolder {
+    height: 15%;
+    padding: 10px 9px 25px 9px;
+}
+
+input{
+  padding: 0 15px;
+  width:100%;
+  height:100%;
+  border-radius: 5px;
+  border:0;
+  box-shadow: 4px 4px 11px 0px rgba(0,0,0, .15);
+}
+
+.scrollBox::-webkit-scrollbar-track {
+/**  STYLE 5 */
+
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #fff;
+}
+
+
+.autoBubbles{
+  height: 7%;
+  width: 100%;
+  display: table;
+}
+.autoBubbles> div {
+  display: table-cell;
+  width: 33%;
+}
+.bubble {
+  margin:auto;
+  margin-top:10px;
+    border-radius:15px;
+    background-color: #645cfc;
+    width: 80%;
+    height: 70%;
 }

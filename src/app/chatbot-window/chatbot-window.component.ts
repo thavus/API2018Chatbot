@@ -23,6 +23,7 @@ export class ChatbotWindowComponent implements OnInit {
 
   handlePopUp(){
     this.isOpen = this.isOpen ? false : true;
+    console.log("clicked");
   }
 
 
