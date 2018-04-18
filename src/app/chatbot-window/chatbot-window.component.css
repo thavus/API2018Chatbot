@@ -1,5 +1,241 @@
+html {
+-x-font-family: sans-serif;
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+display: block; }
+
+audio,
+canvas,
+progress,
+video {
+display: inline-block;
+vertical-align: baseline; }
+
+audio:not([controls]) {
+display: none;
+height: 0; }
+
+[hidden],
+template {
+display: none; }
+
+a {
+background: transparent; }
+
+a:active,
+a:hover {
+outline: 0; }
+
+abbr[title] {
+border-bottom: 1px dotted; }
+
+b,
+strong {
+font-weight: bold; }
+
+dfn {
+font-style: italic; }
+
+h1 {
+font-size: 2em;
+margin: 0.67em 0; }
+
+mark {
+background: #ff0;
+color: #000; }
+
+small {
+font-size: 80%; }
+
+sub,
+sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline; }
+
+sup {
+top: -0.5em; }
+
+sub {
+bottom: -0.25em; }
+
+img {
+border: 0; }
+
+svg:not(:root) {
+overflow: hidden; }
+
+figure {
+margin: 1em 40px; }
+
+hr {
+-moz-box-sizing: content-box;
+box-sizing: content-box;
+height: 0; }
+
+pre, xmp {
+overflow: auto; }
+
+code,
+kbd,
+pre,
+xmp,
+samp {
+font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+color: inherit;
+font: inherit;
+margin: 0; }
+
+button {
+overflow: visible; }
+
+button,
+select {
+text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+-webkit-appearance: button;
+cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+border: 0;
+padding: 0; }
+
+input {
+line-height: normal; }
+
+input[type="checkbox"],
+input[type="radio"] {
+box-sizing: border-box;
+padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+height: auto; }
+
+input[type="search"] {
+-webkit-appearance: textfield;
+-moz-box-sizing: content-box;
+-webkit-box-sizing: content-box;
+box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+-webkit-appearance: none; }
+
+fieldset {
+border: 1px solid #c0c0c0;
+margin: 0 2px;
+padding: 0.35em 0.625em 0.75em; }
+
+legend {
+border: 0;
+padding: 0; }
+
+textarea {
+overflow: auto; }
+
+optgroup {
+font-weight: bold; }
+
+table {
+border-collapse: collapse;
+border-spacing: 0; }
+
+td,
+th {
+padding: 0; }
+
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+outline:none; }
+
+*:before,
+*:after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box; }
+
+html {
+font-size: 10px;
+-webkit-tap-highlight-color: transparent; }
+
+body {
+font-size: 13px;
+line-height: 1.42857;
+color: #343d47;
+background-color: #fff;
+ }
+
+input,
+button,
+select,
+textarea {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit; }
+
+a {
+color: #278efc;
+text-decoration: none; }
+a:hover, a:focus {
+color: #278efc;
+text-decoration: underline; }
+a:focus {
+outline: thin dotted;
+outline: 5px auto -webkit-focus-ring-color;
+outline-offset: -2px; }
+
+figure {
+margin: 0; }
+
+img {
+vertical-align: middle; }
+
+button {background-color: rgba(255, 255, 255, 0.45);border: 1px solid #bdc0c4;color: #343d47;line-height: 1.42857;min-width: 2.25em;min-width: auto\9;min-height: 2.25em;min-height: auto\9;font-weight: normal;padding: 6px 9px;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;}
+button:hover {
+-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
+-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
+box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px; }
+
 .app-chatbot-window {
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0, .2);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  line-height: 1.42857;
   font-family: 'Roboto', sans-serif !important;
+  font-size:13px;
   position:absolute;
   width: 265px;
   height: 450px;
@@ -22,12 +258,38 @@ overflow:hidden;
 }
 
 .fixed-chatIcon{
-  position:absolute;
-  width: 30px;
-  height: 50px;
-  background-color: orange;
-  right: 0;
-  bottom: 160px;
+  text-align:left;
+  border: none !important;
+  cursor: pointer;
+  line-height: 1.3;
+  color: #343d47;
+  font-family: 'Roboto', sans-serif !important;
+    font-size:12px;
+    position: absolute;
+    border-radius: 5px;
+    width: 175px;
+    padding: 5px 5px 5px 40px;
+    background-color: #fff;
+    right: 0;
+    bottom: 160px;
+  box-shadow: 4px 4px 11px 0px rgba(0,0,0, .15);
+  margin-right:5px;
+}
+.fixed-chatIcon:hover{
+  box-shadow: 4px 4px 11px 0px rgba(0,0,0, .15);
+  margin-right:7px;
+}
+
+.fixed-chatIcon:before{
+  display: inline;
+  content: "";
+  height:25px;
+  width:25px;
+  position: absolute;
+  top:8px;
+  left: 5px;
+  background: #fff url("assets/img/bot.png") no-repeat;
+  background-size: cover;
 }
 .topBarHolder{
   position:fixed;
@@ -96,21 +358,26 @@ button.closeArrow{
 }
 
 button.microphone{
+  opacity: .7;
   position: absolute;
-  top: 9px;
+  top: 7px;
   right: 4px;
+  margin-right: 5px;
 }
 
 button.microphone:before{
   content: "|";
-    display: inline;
-    padding-right: 5px;
-    opacity: .5;
-    font-size: 21px;
-    position: absolute;
-    top: 0px;
-    left: -2px;
+  display: inline;
+  padding-right: 5px;
+  opacity: .5;
+  font-size: 21px;
+  position: absolute;
+  top: 0px;
+  left: -2px;
+
 }
+
+
 
 div.scrollBox {
   overflow-x: hidden;
@@ -146,13 +413,14 @@ div.scrollbox::-webkit-scrollbar-track {
 }
 
 input{
+  box-sizing: border-box;
   padding: 0 15px;
-  padding-right: 42px;
   width:100%;
   height:100%;
   border-radius: 5px;
   border:0;
   box-shadow: 4px 4px 11px 0px rgba(0,0,0, .15);
+  padding-right: 40px;
 }
 
 .scrollBox::-webkit-scrollbar-track {
@@ -172,7 +440,6 @@ input{
 .autoBubbles > div {
   display: inline-block;
   height: 86%;
-  width: 88px;
 }
 .bubble {
   padding-top:3px;
@@ -183,6 +450,9 @@ input{
   background-color: #645cfc;
   height: 100%;
   margin-right: 7px;
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
 }
 
 .bubble .chatIcon{
@@ -267,4 +537,11 @@ div.contentBox div.user:after{
 
 img.microphone{
   width:20px;
+}
+
+button p{
+  position: absolute;
+  top: 9px;
+  right: 4px;
+  font-size: 20px;
 }

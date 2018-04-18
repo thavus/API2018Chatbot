@@ -1,3 +1,7 @@
+Voice Recognition only works in Chrome
+Also please go here: chrome://flags/
+Enable Experimental Web Platform features
+
 # API2018Chatbot
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.

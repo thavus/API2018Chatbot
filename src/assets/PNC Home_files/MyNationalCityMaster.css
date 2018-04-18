@@ -1,0 +1,590 @@
+﻿/* _lcid="1033" _version="12.0.4518" _LocalBinding */
+
+TABLE {
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	color: #666666;
+	
+}	 
+
+TR {
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	color: #666666;
+		
+}
+
+TD {
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	color: #666666;
+		
+}
+
+body {
+	overflow: hidden;
+}
+
+.lightgrayDividerLine
+{
+    WIDTH: 1px;
+    HEIGHT: 1px;
+    BACKGROUND-COLOR: #dbd8d8
+}
+
+.ShareYourThoughts {
+	font-size:10px;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	padding-top: 10px;
+	padding-left: 5px; 
+	border-top-style: dashed; 
+	border-bottom-style: dashed; 
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	padding-bottom: 10px;
+	vertical-align: top;
+}
+
+.ShareYourThoughtsLink
+{
+ text-decoration:none;
+ font-size:10px;
+ font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+ color: #63697b;
+ font-weight:bold;
+}
+
+.ShareYourThoughtsLink a
+{
+  color: #63697b;
+  text-decoration:none;
+}
+
+.ShareYourThoughtsLink a:hover
+{
+  text-decoration:underline;
+}
+
+.QuickLinkCell
+{
+font-size:10px;
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+color: #666666;
+background-color:transparent;
+padding-left:5px;
+border-top-style:dashed;	
+border-top-width:1px;	
+border-bottom-style:none;	
+border-bottom-width:medium; 
+padding-bottom:6px;
+vertical-align:top;
+text-decoration:none;
+}
+
+.QuickLinkCell a
+{
+ color: #666666;
+  text-decoration:none;
+}
+
+.QuickLinkCell a:hover 
+{
+  text-decoration:underline;
+}
+
+.QuickLinksImg
+{
+padding-left:5px; 
+padding-bottom:5px; 
+padding-top:5px;
+}
+
+table.PeopleFinder
+{
+border-collapse:collapse;
+border-style:solid; 
+border-width:1px;
+font-size:10px;
+width:100%;
+}
+.PeopleFinderHeader
+{
+background-color:#868EA7;
+}
+
+.PeopleFinderHeader TD
+{
+padding-left:5px;
+}
+input.PeopleFinder
+{
+border-color:#868EA7;
+border-style:solid ;
+border-width:1px;
+}
+.PeopleFinderLabel
+{
+font-size:10px;	
+vertical-align:top;
+padding-left:5px;
+}
+.PeopleFinderSrchImg
+{
+width:90px;
+text-align:right;
+}
+
+.PeopleFinderTopRow
+{
+padding-left:5px ; 
+padding-top:5px;
+}
+
+table.GenericSearch
+{
+	border: 2px;
+	padding:0px;
+	text-align:left;
+	width:100%;
+	font-size:xx-large; 
+}
+
+.GenericSearch a
+{
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight: bold;
+color: white;
+text-decoration:none ;
+}
+.GenericSearch a:hover
+{
+font-size:10px;
+text-decoration:underline;
+}
+input.GenericSearch
+{
+border-style:none;
+}
+
+td.GenericSearch
+{
+padding-left:10px;
+
+}
+
+.TopNavMenu {
+	border-bottom: none;
+	background-image: none;
+	background-repeat: repeat-x;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	padding-right:3px;
+	padding-left:2px;
+	color: #666666;
+}
+table.Main
+{
+padding:0px;
+border:0px;
+width:800px;
+height:100%;
+border-collapse:collapse;
+}
+tr.banner
+{
+padding:0px;
+height:80px;
+}
+td.bannerleft
+{
+	 width:180px;
+	 vertical-align: top;
+}
+table.Logo
+{
+width:180px;
+height:100%;
+border:0px;
+}
+tr.Logo
+{
+background-color: #007253;
+}
+td.Logo
+{
+ vertical-align:bottom;
+ text-align:center;
+}
+tr.OnePx
+{
+	height:1px;
+}
+
+tr.HomeLink
+{
+height:30px;
+background-color: #585D6D;
+}
+
+td.HomeLink
+{
+text-align:right;
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+padding-top:1px;
+padding-right:20px;
+font-size:10px;
+font-weight:bold;
+}
+
+a.HomeLink
+{
+	color:white;
+	text-decoration:none;
+}
+td.TwoPx
+{
+	width:2px;
+}
+tr.TopNav
+{
+ height:30px;
+}
+table.ExpandFull
+{
+	width:100%;
+	height:100%;
+	border:0px;
+}
+tr.bannerCenter
+{
+	background-color:#CFEEE6;
+}
+td.bannerRight
+{
+	 width: 180px;
+	 vertical-align: top;
+}
+tr.DateTime
+{
+	height:30px;
+}
+td.DateTime
+{
+background-color: #585D6D;
+text-align:right;
+padding-right:10px;
+color:white;
+font-size:7pt;
+font-weight:bold;
+}
+tr.GenericSearch
+{
+	 background-color:#868EA7;
+}
+tr.SiteActions
+{
+	font-size: 10px;
+	color: White;
+	background-color:#868EA7;
+	
+}
+a.SiteActions
+{
+font: Verdana;
+color: White;
+text-decoration:none;
+}
+td.SiteActions
+{
+text-align:right;
+font-size: 10px;
+}
+tr.NavUnderLine
+{
+height:1px;
+background-color: #63697B;
+}
+tr.bannerSeperator
+{
+	height:10px;
+}
+td.MasterLeft
+{
+ vertical-align:top;
+ width:180px;
+}
+
+table.MasterLeft
+{
+	width:180px;
+	border:0px;
+}
+td.MasterLeftThoughts
+{
+	padding-top: 10px;
+}
+td.MasterLeftSeperator
+{
+width:10px;
+}
+tr.Footer
+{
+	height:60px;
+}
+tr.FooterSeperator
+{
+	height:10px;
+}
+tr.FooterRow1
+{
+height:12px;
+background-color: #585D6D;
+}
+tr.FooterRow2
+{
+height:30px;
+background-color:#007253;
+}
+.FooterMenuItem
+{
+font-size: 7.5pt;
+color: #007253;
+}
+td.CopyRight
+{
+text-align:right;
+font-size: 7.5pt;
+}
+
+table.MyHR
+{
+border-color: #996666; 
+border-collapse: collapse; 
+border-style: solid;
+border-width: 1px; 
+width: 100%; 
+padding-top: 10px; 
+padding-bottom: 5px;
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+tr.MyHR
+{
+background-color: #996666;
+color:#ffffff;
+height: 15px;
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+font-size: 10pt;
+}
+td.MyHR
+{
+ color:#ffffff;	
+ padding-left:10px;
+ font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+ font-size: 10pt;
+}
+
+/*Stock Ticker*/
+.stockGreen
+{
+ color:#6DB33F;
+/* font-size:8.5pt;*/
+ font-size:1em;
+ font-weight: bold;
+ padding-right:.3em;
+}
+.stockRed
+{
+ color:#EE3423;
+/* font-size:8.5pt;*/
+ font-size:1em;
+ font-weight: bold;
+ padding-right:.3em;
+}
+
+table.StockUpdate
+{
+/*border-color: #996666; 
+border-collapse: collapse; 
+border-style: solid;
+border-width: 1px;*/ 
+width: 180px; 
+width: 300px; 
+/*padding-top: 10px; 
+padding-bottom: 5px;*/
+padding-right:0px;
+cellpadding:0px;
+}
+
+tr.StockUpdateHeader
+{
+/*background-color: #996666;*/
+background-color: #0069AA;
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+color:white;
+}
+
+
+a.ViewPeer
+{
+text-decoration: none;
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 10px;
+color: #63697B;
+padding-bottom: 10px;
+}
+
+a.ViewPeerAll
+{
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+font-size:.8em;
+text-decoration: underline; 
+color: #63697B;
+padding-bottom: 10px;
+}
+
+
+
+
+table.PeerStock
+{
+/*border-color: #996666; */
+border-color: none; 
+border-collapse:collapse ; 
+/*border-style: solid;*/
+border-width: 1px; 
+width: 100%; 
+padding-top: 10px; 
+padding-bottom: 5px;
+}
+
+td.peerStockHdr
+{
+color:white;
+font-size:16px;
+font-weight:600;
+text-align:left;
+
+}
+td.LastUpdate
+{
+	font-size: 7.5pt;
+	padding-top: 0px;
+	padding-bottom:10px;
+}
+td.ContactInfo
+{
+	padding-top: 5px;
+	font-size: 7.5pt;
+
+}
+td.pgHeader
+{
+font-size:large ;
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+vertical-align:bottom;
+}
+
+
+h3.ms-standardheader nobr
+{
+white-space: normal;	
+}
+td.stockLastUpdate
+{
+/*font-size:6pt;*/
+font-size:14px;
+/*text-align:right;*/
+text-align:left;
+/*padding-left: 3.175mm;*/
+color:gray;
+}
+
+td.nccStock
+{
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	/*padding-left: 3.175mm;*/
+	padding-right:0px;
+	text-align:left;
+	font-size:16px;
+	padding-top:.3em;
+}
+
+.nccStock
+{
+	font-size:16px;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+/*	color: #63697B;*/
+	color: #000000;
+/*	font-weight: bold;*
+	background-color:#FFEFE0; */	
+}
+
+.nccStockZero
+{
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+font-size:16px;
+padding-left:.75em;
+padding-top:0.3em;
+text-align:left;
+
+}
+
+.nccStockNeg
+{
+font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+font-size:16px;
+padding-left:.3em;
+padding-top:0.3em;
+text-align:left;
+
+}
+
+
+.nccStockValue
+{
+font-weight: bold;
+}
+
+
+
+/* CHANGES -- PNC */
+
+table.StockUpdate
+{
+	border: 0px white none;
+}
+
+.StockUpdateHeaderTitle
+{
+	display:block;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:600;
+	color:white;
+	/*padding-left: 3.175mm*/
+	}
+
+.nccStockTitle
+{
+	font-size:18px;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	font-weight:600;
+	color:black;
+}
+
+.nccStock a
+{
+	color:black;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	font-size:1em;
+}
+.nccStock a:link
+{
+	color:black;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	font-size:1em;
+	padding-right:.3em;
+}
