@@ -23,7 +23,10 @@ export class ChatbotWindowComponent implements OnInit {
       from : "user"
     }
   ];
-  text = {};
+  text = {
+      val : "",
+      from : ""
+    };
 
   inBounds = true;
   edge = {
@@ -68,7 +71,10 @@ export class ChatbotWindowComponent implements OnInit {
       from : from
     }
     this.prevTexts.push(this.text);
-    this.text = {};
+    this.text = {
+      val : "",
+      from : ""
+    };
   }
 
   checkEdge(event) {
