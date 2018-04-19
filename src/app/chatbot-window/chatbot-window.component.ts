@@ -9,6 +9,7 @@ export class ChatbotWindowComponent implements OnInit {
   @Input() aKey1: boolean;
   @Input() aKey2: boolean;
   @Input() aKey3: boolean;
+  speechRecognition = Window['webkitSpeechRecognition'];
   recognizing = false;
   isOpen = false;
   recognition;
@@ -58,7 +59,7 @@ export class ChatbotWindowComponent implements OnInit {
     if (!('webkitSpeechRecognition' in window)) {
         alert("Please use the latest version of chrome");
     } else {
-        this.recognition = new webkitSpeechRecognition();
+        this.recognition = new this.speechRecognition();
         this.recognition.start();
         this.recognizing = true;
 
