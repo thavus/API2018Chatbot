@@ -1,0 +1,18 @@
+[
+	['Hi', 'Hello', 'Sup', 'Hola'] {
+      val : "Hello! I am OATIS and I am here to help you with everyday tasks here at PNC. How can I help you?",
+      isUser : false,
+      bubbles : [
+        {
+          val : "Troubleshoot Common Tasks"
+        },
+        {
+          val : "Check on a ServiceNow Request"
+        },
+        {
+          val : "Something else"
+        }
+      ]
+    },
+	
+  ];
