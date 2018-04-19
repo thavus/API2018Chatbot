@@ -1,0 +1,26 @@
+// Create a Skype problem incident in ServiceNow as Darth Vader and return the result's incident number as a hyperlink.
+function createIncident() {
+	var req = {
+		method: 'POST',
+		url: 'https://pncmelliniumfalcon.service-now.com/api/now/table/incident',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Authorization': 'Basic '+btoa('Darth.vader'+':'+'Iwi11Ch0keU!')
+		},
+		data: {
+			caller_id: 'Darth.vader',
+			short_description: 'Having Skype issues in a conference room' 
+		}
+	}
+	$http(req).then(function successCallback(response) { 
+		var incidentResponse = JSON.parse(response.data);
+		var incidentNum = incidentResponse.number;
+		var sysId = incidentResponse.sys_id;
+		var incidentURL = "https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=" + sysId + "%26sysparm_view=ess";
+		return "<a href=\"" + incidentURL + "\">" + incidentNum + "</a>";
+	}, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+	});
+}
