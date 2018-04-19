@@ -45,6 +45,17 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   }
 
+
+  ngAfterViewChecked() {        
+      this.scrollToBottom();        
+  } 
+
+  scrollToBottom(): void {
+      try {
+          this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      } catch(err) { }                 
+  }
+
   handlePopUp(){
     this.isOpen = this.isOpen ? false : true;
     this.aKey3 = true;
