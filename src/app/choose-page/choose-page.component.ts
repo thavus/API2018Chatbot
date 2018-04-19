@@ -13,6 +13,7 @@ export class ChoosePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   keyPress(event){

@@ -18,7 +18,8 @@
     </div>
     <div class="content-table">
       <div class="contentBox">
-        <div class="user">text here</div>
+        <div *ngFor="let text of prevTexts" class=""></div>
+        <!--<div class="user">text here</div>
         <div class="bot">text here</div>
         <div class="user">text here</div>
         <div class="bot">text here</div>
@@ -35,7 +36,7 @@
         <div class="user">text hefsfdsfs fsfdsdsfdsfdsfds re</div>
         <div class="bot">text here</div>
         <div class="user">dlkg;ljfkg jds;lkgj dslkjglkds jg;jdglkjds;g sdfgfd</div>
-        <div class="bot">text here</div>
+        <div class="bot">text here</div>-->
       </div>
     </div>
   </div>
@@ -61,7 +62,7 @@
       </div>
     </div>
     <div class="inputHolder">
-      <input placeholder="Say Something ..."/>
+      <input #box (keyup.enter)="addChat(box.value, 'user')" placeholder="Say Something ..."/>
       <button (click)="handleMic()" class="microphone">
         <img src="assets/img/{{(!recognizing) ? 'microphone' : 'circle'}}.svg" class="microphone" alt="close" />
       </button>
@@ -69,6 +70,6 @@
 
   </div>
     <button (click)="handlePopUp()" [hidden]="isOpen" class="fixed-chatIcon">
-    OATIS here! Anything I can help you find? {{key1}}
+    {{aKey1? "I noticed you need to take your Managing Risk in Agile training for 2018!" : aKey2 ? "Coming Soon" : aKey3 ? "OATIS here! Anything I can help you find?" : "I noticed you need to take your Managing Risk in Agile training for 2018!"}}
   </button>
 </div>

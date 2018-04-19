@@ -6,12 +6,24 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./chatbot-window.component.css']
 })
 export class ChatbotWindowComponent implements OnInit {
-  @Input() key1: key1;
-  @Input() key2: key2;
-  @Input() key3: key3;
+  @Input() aKey1: boolean;
+  @Input() aKey2: boolean;
+  @Input() aKey3: boolean;
   recognizing = false;
   isOpen = false;
   recognition;
+  pinnedChats = [];
+  prevTexts = [
+    {
+      val : "hello",
+      from : "bot"
+    },
+    {
+      val : "hello",
+      from : "user"
+    }
+  ];
+  text = {};
 
   inBounds = true;
   edge = {
@@ -29,7 +41,9 @@ export class ChatbotWindowComponent implements OnInit {
 
   handlePopUp(){
     this.isOpen = this.isOpen ? false : true;
-    console.log("clicked");
+    this.aKey3 = true;
+    this.aKey2 = false;
+    this.aKey1 = false;
   }
 
   handleMic(){
@@ -48,6 +62,14 @@ export class ChatbotWindowComponent implements OnInit {
     }
   }
 
+  addChat(val, from){
+    this.text = {
+      val : val,
+      from : from
+    }
+    this.prevTexts.push(this.text);
+    this.text = {};
+  }
 
   checkEdge(event) {
     this.edge = event;
