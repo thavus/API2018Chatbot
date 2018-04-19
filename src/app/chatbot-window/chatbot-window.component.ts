@@ -26,20 +26,21 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     {
       val : "I noticed you need to take your Managing Risk in Agile Training for 2018. Would you like to go there now?",
       isUser : false,
-      url : ""
+      url : "",
+      bubbles : [
+        {
+          val : "Yes"
+        },
+        {
+          val : "No"
+        },
+        {
+          val : "Remind me later"
+        }
+      ]
     }
   ];
-  bubbles = [
-    {
-      val : "Yes"
-    },
-    {
-      val : "No"
-    },
-    {
-      val : "Remind me later"
-    }
-  ];
+  
   notifications = [
     {
       val: "I noticed you need to take your Managing Risk in Agile training for 2018!"
@@ -48,7 +49,8 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   text = {
       val : "",
       isUser : false,
-      url : ""
+      url : "",
+      bubbles : []
     };
   inputText = "";
 
@@ -61,7 +63,6 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   };
 
   constructor(private serviceNow: ServiceNowService, private sanitizer: DomSanitizer) {
-
     this.speechRecognition = new webkitSpeechRecognition();
     this.speechRecognition.continuous = true;
     this.speechRecognition.interimResults = true;
@@ -98,7 +99,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     if (this.recognizing) {
         this.recognizing = false;
         this.speechRecognition.stop();
-        this.addChat(this.myInputBox.nativeElement.value, true, "");
+        this.addChat(this.myInputBox.nativeElement.value, true, "", []);
       this.myInputBox.nativeElement.value = "";
         return;
     }
@@ -135,14 +136,18 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     };
   }
 
-  addChat(val, isUser, url){
+  addChat(val, isUser, url, bubbles){
     if(!url){
       url = "";
+    }
+    if(!bubbles){
+      bubbles = [];
     }
     this.text = {
       val : val,
       isUser : isUser,
-      url : url
+      url : url,
+      bubbles : bubbles
     };
     if(this.text.val != ""){
       this.prevTexts.push(this.text);
@@ -162,7 +167,19 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       let url = "https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=";
       url +=  result.sys_id;
       this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
-      this.addChat(this.safeHTML, false, url);
+
+      let bubbles = [
+        {
+          val : "Pin this"
+        },
+        {
+          val : "One more thing"
+        },
+        {
+          val : "Thanks!"
+        }
+      ]
+      this.addChat(this.safeHTML, false, url, bubbles);
     });
   }
 
