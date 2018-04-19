@@ -486,21 +486,22 @@ div.contentBox{
 }
 
 div.contentBox div{
+  max-width: 186px;
   font-size:12px;
   padding: 6px 18px;
   border-radius: 10px;
   margin: 15px;
-  color:white;
-  text-align:left;
+  color: white;
+  text-align: left;
   max-height: 200px;
 }
 
 div.contentBox div.user{
   background-color: #7c849c;
-  margin-left:50px;
-  position:relative;
+  margin-left: 50px;
+  position: relative;
   z-index: -5;
-  margin-right:25px;
+  margin-right: 25px;
 }
 
 

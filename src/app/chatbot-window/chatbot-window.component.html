@@ -17,8 +17,10 @@
       </div>
     </div>
     <div class="content-table">
-      <div class="contentBox">
-        <div *ngFor="let text of prevTexts" class=""></div>
+      <div class="contentBox" #scrollMe>
+        <div *ngFor="let text of prevTexts" [ngClass]="{'user': text.isUser, 'bot': !text.isUser}">
+          {{text.val}}
+        </div>
         <!--<div class="user">text here</div>
         <div class="bot">text here</div>
         <div class="user">text here</div>
@@ -62,7 +64,7 @@
       </div>
     </div>
     <div class="inputHolder">
-      <input #box (keyup.enter)="addChat(box.value, 'user')" placeholder="Say Something ..."/>
+      <input #box (keyup.enter)="addChat(box.value, true)" [(ngModel)]="inputText" placeholder="Say Something ..."/>
       <button (click)="handleMic()" class="microphone">
         <img src="assets/img/{{(!recognizing) ? 'microphone' : 'circle'}}.svg" class="microphone" alt="close" />
       </button>

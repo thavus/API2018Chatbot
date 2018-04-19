@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-chatbot-window',
   templateUrl: './chatbot-window.component.html',
   styleUrls: ['./chatbot-window.component.css']
 })
-export class ChatbotWindowComponent implements OnInit {
+export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   @Input() aKey1: boolean;
   @Input() aKey2: boolean;
   @Input() aKey3: boolean;
@@ -17,17 +18,18 @@ export class ChatbotWindowComponent implements OnInit {
   prevTexts = [
     {
       val : "hello",
-      from : "bot"
+      isUser : false
     },
     {
       val : "hello",
-      from : "user"
+      isUser : true
     }
   ];
   text = {
       val : "",
-      from : ""
+      isUser : false
     };
+  inputText = "";
 
   inBounds = true;
   edge = {
@@ -62,20 +64,16 @@ export class ChatbotWindowComponent implements OnInit {
         this.recognition = new this.speechRecognition();
         this.recognition.start();
         this.recognizing = true;
-
     }
   }
 
-  addChat(val, from){
+  addChat(val, isUser){
     this.text = {
       val : val,
-      from : from
-    }
-    this.prevTexts.push(this.text);
-    this.text = {
-      val : "",
-      from : ""
+      isUser : isUser
     };
+    this.prevTexts.push(this.text);
+    this.inputText = "";
   }
 
   checkEdge(event) {
