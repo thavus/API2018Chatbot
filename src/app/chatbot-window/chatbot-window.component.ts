@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-chatbot-window',
   templateUrl: './chatbot-window.component.html',
-  styleUrls: ['./chatbot-window.component.css']
+  styleUrls: ['./chatbot-window.component.css'], 
 })
 export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
