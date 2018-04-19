@@ -289,7 +289,7 @@ overflow:hidden;
   position: absolute;
   top:8px;
   left: 5px;
-  background: #fff url("assets/img/bot.png") no-repeat;
+  background: #fff url("/assets/img/bot.png") no-repeat;
   background-size: cover;
 }
 .topBarHolder{
@@ -525,13 +525,13 @@ div.contentBox div.bot:after, div.contentBox div.user:after{
   position: absolute;
   top: -20px;
   left: -15px;
-  background: #fff url("assets/img/bot.png") no-repeat;
+  background: #fff url("/assets/img/bot.png") no-repeat;
   background-size: cover;
 }
 
 
 div.contentBox div.user:after{
-  background: #fff url("assets/img/astro.jpg") no-repeat;
+  background: #fff url("/assets/img/astro.jpg") no-repeat;
   background-size: cover;
   right: -15px;
   left: auto;

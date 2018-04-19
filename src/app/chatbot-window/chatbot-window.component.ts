@@ -1,13 +1,17 @@
 import { Component, OnInit, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { ServiceNowService } from '../service-now.service';
 
+const {webkitSpeechRecognition} : IWindow = <IWindow>window;
+
 @Component({
   selector: 'app-chatbot-window',
   templateUrl: './chatbot-window.component.html',
-  styleUrls: ['./chatbot-window.component.css'], 
+  styleUrls: ['./chatbot-window.component.css'],
 })
+
 export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  @ViewChild('box') private myInputBox: ElementRef;
   @Input() aKey1: boolean;
   @Input() aKey2: boolean;
   @Input() aKey3: boolean;
@@ -15,7 +19,6 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   speechRecognition = Window['webkitSpeechRecognition'];
   recognizing = false;
   isOpen = false;
-  recognition;
   pinnedChats = [];
   prevTexts = [
     {
@@ -54,21 +57,24 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   };
 
   constructor(private serviceNow: ServiceNowService) {
+
+    this.speechRecognition = new webkitSpeechRecognition();
+    this.speechRecognition.continuous = true;
+    this.speechRecognition.interimResults = true;
   }
 
-  ngOnInit() {    
+  ngOnInit() {
       this.scrollToBottom();
   }
 
-  ngAfterViewChecked() {        
-      this.scrollToBottom();        
-  } 
+  ngAfterViewChecked() {
+      this.scrollToBottom();
+  }
 
   scrollToBottom(): void {
       try {
-          console.log(this.myScrollContainer.nativeElement.scrollHeight);
           this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-      } catch(err) { }                 
+      } catch(err) { }
   }
 
   handlePopUp(){
@@ -84,18 +90,45 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   }
 
   handleMic(){
+
     if (this.recognizing) {
+        this.recognizing = false;
+        this.speechRecognition.stop();
+        this.addChat(this.myInputBox.nativeElement.value, true);
+      this.myInputBox.nativeElement.value = "";
+        return;
+    }
+    this.speechRecognition.start();
+    let final_transcript = '';
+    this.recognizing = true;
+
+    this.speechRecognition.onstart = (event) => {
+      this.recognizing = true;
+    };
+
+    this.speechRecognition.onresult = (event) => {
+      let interim_transcript = '';
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        console.log(this.recognizing);
+        if (event.results[i].isFinal) {
+          final_transcript += event.results[i][0].transcript;
+        } else {
+          interim_transcript += event.results[i][0].transcript;
+          this.myInputBox.nativeElement.value = interim_transcript;
+        }
+      }
+    //this.myInputBox.nativeElement.value = final_transcript;
+
+    };
+
+
+    this.speechRecognition.onend = () => {
       this.recognizing = false;
-      this.recognition.stop();
-      return;
-    }
-    if (!('webkitSpeechRecognition' in window)) {
-        alert("Please use the latest version of chrome");
-    } else {
-        this.recognition = new this.speechRecognition();
-        this.recognition.start();
-        this.recognizing = true;
-    }
+
+      if(!final_transcript) {
+        return;
+      }
+    };
   }
 
   addChat(val, isUser){
@@ -120,4 +153,8 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     this.edge = event;
   }
 
+}
+
+export interface IWindow extends Window {
+  webkitSpeechRecognition: any;
 }
