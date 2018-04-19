@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-chatbot-window',
@@ -17,12 +17,19 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   pinnedChats = [];
   prevTexts = [
     {
-      val : "hello",
+      val : "I noticed you need to take your Managing Risk in Agile Training for 2018. Would you like to go there now?",
       isUser : false
+    }
+  ];
+  bubbles = [
+    {
+      val : "Yes"
     },
     {
-      val : "hello",
-      isUser : true
+      val : "No"
+    },
+    {
+      val : "remind me later"
     }
   ];
   text = {
@@ -41,10 +48,9 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   constructor() { }
 
-  ngOnInit() {
-
+  ngOnInit() {    
+      this.scrollToBottom();
   }
-
 
   ngAfterViewChecked() {        
       this.scrollToBottom();        
@@ -52,6 +58,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   scrollToBottom(): void {
       try {
+          console.log(this.myScrollContainer.nativeElement.scrollHeight);
           this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
       } catch(err) { }                 
   }
@@ -83,8 +90,10 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       val : val,
       isUser : isUser
     };
-    this.prevTexts.push(this.text);
-    this.inputText = "";
+    if(this.text.val != ""){
+      this.prevTexts.push(this.text);
+      this.inputText = "";
+    }
   }
 
   checkEdge(event) {
