@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AngularDraggableModule } from 'angular2-draggable';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ChatbotWindowComponent } from './chatbot-window/chatbot-window.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChoosePageComponent } from './choose-page/choose-page.component';
 import { PowerlinkComponent } from './powerlink/powerlink.component';
+
+import { ServiceNowService } from './service-now.service';
+
 
 const appRoutes: Routes = [
   { path: 'powerlink', component: PowerlinkComponent, data: { title: 'Powerlink' } },
@@ -32,9 +36,10 @@ const appRoutes: Routes = [
     ),
     AngularDraggableModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ServiceNowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

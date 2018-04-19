@@ -40,6 +40,11 @@
 
   </div>
     <button (click)="handlePopUp()" [hidden]="isOpen" class="fixed-chatIcon">
-    {{aKey1? "I noticed you need to take your Managing Risk in Agile training for 2018!" : aKey2 ? "You have a pending OIM approval" : aKey3 ? "OATIS here! Anything I can help you find?" : "I noticed you need to take your Managing Risk in Agile training for 2018!"}}
+    <div>
+      {{(notifications.length > 0) ? notifications[0].val : "Oatis here! Is there anything I can help you with?"}}
+    </div>
+    <span>
+      {{(notifications.length > 0) ? notifications.length:""}}
+    </span>
   </button>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { ServiceNowService } from '../service-now.service';
 
 @Component({
   selector: 'app-chatbot-window',
@@ -10,6 +11,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   @Input() aKey1: boolean;
   @Input() aKey2: boolean;
   @Input() aKey3: boolean;
+  OIMNeedsPushed = true;
   speechRecognition = Window['webkitSpeechRecognition'];
   recognizing = false;
   isOpen = false;
@@ -29,7 +31,12 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       val : "No"
     },
     {
-      val : "remind me later"
+      val : "Remind me later"
+    }
+  ];
+  notifications = [
+    {
+      val: "I noticed you need to take your Managing Risk in Agile training for 2018!"
     }
   ];
   text = {
@@ -46,7 +53,8 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     right: true
   };
 
-  constructor() { }
+  constructor(private serviceNow: ServiceNowService) {
+  }
 
   ngOnInit() {    
       this.scrollToBottom();
@@ -64,10 +72,15 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   }
 
   handlePopUp(){
+    this.createTicket();
     this.isOpen = this.isOpen ? false : true;
     this.aKey3 = true;
     this.aKey2 = false;
     this.aKey1 = false;
+    if(this.OIMNeedsPushed){
+      this.notifications.push({ val: "You have a pending OIM approval"});
+      this.OIMNeedsPushed = false;
+    }
   }
 
   handleMic(){
@@ -94,6 +107,13 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       this.prevTexts.push(this.text);
       this.inputText = "";
     }
+  }
+
+  createTicket(){
+    this.serviceNow.createTicket().subscribe(data => {
+      console.log(data['number']);
+      console.log('https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=' +  data['sys_id']);
+    });
   }
 
   checkEdge(event) {
