@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { ServiceNowService } from '../service-now.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const {webkitSpeechRecognition} : IWindow = <IWindow>window;
 
@@ -15,6 +16,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   @Input() aKey1: boolean;
   @Input() aKey2: boolean;
   @Input() aKey3: boolean;
+  safeHTML : any;
   OIMNeedsPushed = true;
   speechRecognition = Window['webkitSpeechRecognition'];
   recognizing = false;
@@ -23,7 +25,8 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   prevTexts = [
     {
       val : "I noticed you need to take your Managing Risk in Agile Training for 2018. Would you like to go there now?",
-      isUser : false
+      isUser : false,
+      url : ""
     }
   ];
   bubbles = [
@@ -44,7 +47,8 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   ];
   text = {
       val : "",
-      isUser : false
+      isUser : false,
+      url : ""
     };
   inputText = "";
 
@@ -56,7 +60,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     right: true
   };
 
-  constructor(private serviceNow: ServiceNowService) {
+  constructor(private serviceNow: ServiceNowService, private sanitizer: DomSanitizer) {
 
     this.speechRecognition = new webkitSpeechRecognition();
     this.speechRecognition.continuous = true;
@@ -94,7 +98,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     if (this.recognizing) {
         this.recognizing = false;
         this.speechRecognition.stop();
-        this.addChat(this.myInputBox.nativeElement.value, true);
+        this.addChat(this.myInputBox.nativeElement.value, true, "");
       this.myInputBox.nativeElement.value = "";
         return;
     }
@@ -131,10 +135,14 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     };
   }
 
-  addChat(val, isUser){
+  addChat(val, isUser, url){
+    if(!url){
+      url = "";
+    }
     this.text = {
       val : val,
-      isUser : isUser
+      isUser : isUser,
+      url : url
     };
     if(this.text.val != ""){
       this.prevTexts.push(this.text);
@@ -142,10 +150,19 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  goToUrl(url){
+    window.open(url);
+  }
+
   createTicket(){
     this.serviceNow.createTicket().subscribe(data => {
-      console.log(data['number']);
-      console.log('https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=' +  data['sys_id']);
+      let result = data['result'];
+      let text = "I've created your ServiceNow request. Your Incident Number is ";
+      text += result.number;
+      let url = "https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=";
+      url +=  result.sys_id;
+      this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
+      this.addChat(this.safeHTML, false, url);
     });
   }
 

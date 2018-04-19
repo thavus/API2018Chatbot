@@ -18,15 +18,15 @@
     </div>
     <div class="content-table">
       <div class="contentBox">
-        <div *ngFor="let text of prevTexts" [ngClass]="{'user': text.isUser, 'bot': !text.isUser}">
-          {{text.val}}
+        <div *ngFor="let text of prevTexts" [innerHTML]="text.val" [ngClass]="{'user': text.isUser, 'bot': !text.isUser}">
+          <button (click)="goToUrl(text.url)">asdfasdf</button>
         </div>
       </div>
     </div>
   </div>
 <div class="autoBubbles">   
   <div *ngFor="let bubble of bubbles">
-      <div (click)="addChat(bubble.val, true)"  class="bubble">
+      <div (click)="addChat(bubble.val, true, '')"  class="bubble">
         {{bubble.val}}
       </div>
   </div>
