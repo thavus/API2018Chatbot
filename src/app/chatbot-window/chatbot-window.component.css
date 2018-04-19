@@ -304,6 +304,7 @@ overflow:hidden;
   box-shadow: 0px 0px 4px 0px rgba(0,0,0, .2);
   overflow: hidden;
   cursor:move;
+  z-index: 5;
 }
 .topBarTxt{
   color:#444c64;
@@ -497,11 +498,15 @@ div.contentBox div{
   max-height: 200px;
 }
 
+div.contentBox div a{
+  color: #2c2c44;
+  text-decoration: underline;
+}
+
 div.contentBox div.user{
   background-color: #7c849c;
   margin-left: 50px;
   position: relative;
-  z-index: -5;
   margin-right: 25px;
 }
 
@@ -511,7 +516,6 @@ div.contentBox div.bot{
   margin-right:50px;
   position:relative;
   padding-left: 24px;
-  z-index: -5;
   margin-left:25px;
 }
 
@@ -536,7 +540,6 @@ div.contentBox div.user:after{
   right: -15px;
   left: auto;
 }
-
 
 img.microphone{
   width:20px;

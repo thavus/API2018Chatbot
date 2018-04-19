@@ -26,7 +26,6 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     {
       val : "I noticed you need to take your Managing Risk in Agile Training for 2018. Would you like to go there now?",
       isUser : false,
-      url : "",
       bubbles : [
         {
           val : "Yes"
@@ -40,7 +39,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       ]
     }
   ];
-  
+
   notifications = [
     {
       val: "I noticed you need to take your Managing Risk in Agile training for 2018!"
@@ -49,7 +48,6 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   text = {
       val : "",
       isUser : false,
-      url : "",
       bubbles : []
     };
   inputText = "";
@@ -99,7 +97,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     if (this.recognizing) {
         this.recognizing = false;
         this.speechRecognition.stop();
-        this.addChat(this.myInputBox.nativeElement.value, true, "", []);
+        this.addChat(this.myInputBox.nativeElement.value, true, []);
       this.myInputBox.nativeElement.value = "";
         return;
     }
@@ -136,17 +134,13 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     };
   }
 
-  addChat(val, isUser, url, bubbles){
-    if(!url){
-      url = "";
-    }
+  addChat(val, isUser, bubbles){
     if(!bubbles){
       bubbles = [];
     }
     this.text = {
       val : val,
       isUser : isUser,
-      url : url,
       bubbles : bubbles
     };
     if(this.text.val != ""){
@@ -155,31 +149,17 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  goToUrl(url){
-    window.open(url);
-  }
-
   createTicket(){
     this.serviceNow.createTicket().subscribe(data => {
       let result = data['result'];
-      let text = "I've created your ServiceNow request. Your Incident Number is ";
+      let text = "I've created your ServiceNow request. Your Incident Number is <a href=\"";
+      text += "https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=";
+      text += result.sys_id;
+      text += "\" target=\"_new\">";
       text += result.number;
-      let url = "https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=";
-      url +=  result.sys_id;
+      text += "</a>";
       this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
-
-      let bubbles = [
-        {
-          val : "Pin this"
-        },
-        {
-          val : "One more thing"
-        },
-        {
-          val : "Thanks!"
-        }
-      ]
-      this.addChat(this.safeHTML, false, url, bubbles);
+      this.addChat(this.safeHTML, false, []);
     });
   }
 
