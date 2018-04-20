@@ -17,6 +17,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   @Input() aKey1: boolean;
   @Input() aKey2: boolean;
   @Input() aKey3: boolean;
+  isWaitingForOOO = false;
   safeHTML : any;
   context = '';
   OIMNeedsPushed = true;
@@ -110,7 +111,18 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
         for (let j = 0; j < data[i].length; j++) {
             if(typeof data[i][j] == "string"){
               if(userText.search(new RegExp(data[i][j], "i")) >= 0){
-                return data[i][data[i].length - 1];
+                if(userText.toLowerCase() == "ooo" || userText.toLowerCase() == "out of office"){
+                  this.isWaitingForOOO = true;
+                }
+                if(this.isWaitingForOOO){
+                  return data[i][data[i].length - 1];
+                }else{
+                  return {
+                    val : "Ok! OOO Updated",
+                    isUser : false,
+                    bubbles : []
+                  }
+                }
               }
             }
         }

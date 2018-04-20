@@ -147,10 +147,10 @@ triggers = [
 		  isUser : false,
 		  bubbles : [
 			{
-			  val : "Please contact my manager if you need immediate assistance."
+			  val : "At the beach"
 			},
 			{
-			  val : "I will respond when I return."
+			  val : "will respond on return."
 			},
 			{
 			  val : "Cancel"

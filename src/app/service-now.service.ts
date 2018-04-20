@@ -28,7 +28,7 @@ export class ServiceNowService {
 			approver: 'Darth.vader',
 			state: 'Approved'
 		};
-		this.url2 = "https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver/ee558ac6dba91b00e00e78dabf961907"
+		this.url2 = "https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver/9d682e0adb6d1b00e00e78dabf961942"
 	}
 
   createTicket(){
