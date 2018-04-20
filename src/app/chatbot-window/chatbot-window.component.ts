@@ -26,6 +26,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     {
       val : "I noticed you need to take your Managing Risk in Agile Training for 2018. Would you like to go there now?",
       isUser : false,
+      isCard : false,
       bubbles : [
         {
           val : "Yes"
@@ -48,6 +49,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   text = {
       val : "",
       isUser : false,
+      isCard : false,
       bubbles : []
     };
   inputText = "";
@@ -82,6 +84,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   handlePopUp(){
     this.createTicket();
+    this.createCard('holiday', '/assets/img/card_chat_holiday.svg', [])
     this.isOpen = this.isOpen ? false : true;
     this.aKey3 = true;
     this.aKey2 = false;
@@ -134,13 +137,14 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     };
   }
 
-  addChat(val, isUser, bubbles){
+  addChat(val, isUser, bubbles, isCard = false){
     if(!bubbles){
       bubbles = [];
     }
     this.text = {
       val : val,
       isUser : isUser,
+      isCard : isCard,
       bubbles : bubbles
     };
     if(this.text.val != ""){
@@ -161,6 +165,17 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
       this.addChat(this.safeHTML, false, []);
     });
+  }
+
+  createCard(type, url, bubbles){
+    if(type === 'holiday') {
+      let text = "<img width=\"215px\" src=\"";
+      text += url;
+      text += "\" />";
+      this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
+      this.addChat(this.safeHTML, false, bubbles, true);
+    }
+
   }
 
   checkEdge(event) {

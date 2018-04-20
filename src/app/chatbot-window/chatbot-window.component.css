@@ -541,6 +541,20 @@ div.contentBox div.user:after{
   left: auto;
 }
 
+div.contentBox div.bot.card{
+  background-color: #fff;
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-left: 10px;
+  max-height: none;
+  max-width: 215px;
+}
+
+div.contentBox div.bot.card:after{
+  display: none;
+}
+
 img.microphone{
   width:20px;
 }
