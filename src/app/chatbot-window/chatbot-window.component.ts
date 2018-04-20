@@ -111,17 +111,18 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
         for (let j = 0; j < data[i].length; j++) {
             if(typeof data[i][j] == "string"){
               if(userText.search(new RegExp(data[i][j], "i")) >= 0){
-                if(userText.toLowerCase() == "ooo" || userText.toLowerCase() == "out of office"){
-                  this.isWaitingForOOO = true;
-                }
-                if(this.isWaitingForOOO){
+                if(!this.isWaitingForOOO){
                   return data[i][data[i].length - 1];
-                }else{
+                }else if(this.isWaitingForOOO){
                   return {
                     val : "Ok! OOO Updated",
                     isUser : false,
                     bubbles : []
                   }
+                }
+                
+                if(userText.toLowerCase() == "ooo" || userText.toLowerCase() == "out of office"){
+                  this.isWaitingForOOO = true;
                 }
               }
             }
