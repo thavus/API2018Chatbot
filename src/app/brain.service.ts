@@ -102,6 +102,16 @@ triggers = [
 	],
 
 	[
+		'open a ticket', 'open ticket', 'Create Service Now Ticket', 'create ticket',
+		{
+		  val : "",
+		  createTicket: true,
+		  isUser : false,
+		  bubbles : []
+		}
+	],
+
+	[
 		'approval','pending Service Now approval',
 		{
 		  val : "You have a pending approval in Service Now for Jay Leon that has been outstanding for 10 days. Do you want to approve it?",
@@ -117,6 +127,16 @@ triggers = [
 			  val : "Remind Me Later"
 			}
 		  ]
+		}
+	],
+
+	[
+		'approve',
+		{
+		  val : "",
+		  approveChange: true,
+		  isUser : false,
+		  bubbles : []
 		}
 	],
 
