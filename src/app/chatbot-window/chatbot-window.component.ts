@@ -86,7 +86,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
     let data = [
       "something else",
-      "another thing", 
+      "another thing",
       "not this",
       "cancel",
       "done",
@@ -129,7 +129,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     this.aKey2 = false;
     this.aKey1 = false;
     if((this.notifications.length > 0) && this.isOpen){
-      
+
       if(this.notifications.length == 1) {
         let chat = this.respond(this.notifications[0].val);
 
@@ -168,7 +168,6 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     this.speechRecognition.onresult = (event) => {
       let interim_transcript = '';
       for (let i = event.resultIndex; i < event.results.length; ++i) {
-        console.log(this.recognizing);
         if (event.results[i].isFinal) {
           final_transcript += event.results[i][0].transcript;
         } else {
@@ -207,7 +206,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     if(isUser){
       let chat = this.respond(val);
       if(typeof chat == 'undefined'){
-        this.addChat("Sorry I didn't understand, please try again", isUser, []);
+        this.addChat("Sorry I didn't understand, please try again", false, []);
         return;
       }
       if(chat.isCard){
