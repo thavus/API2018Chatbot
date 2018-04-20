@@ -42,7 +42,7 @@
     <div>
       {{(notifications.length > 0) ? notifications[0].val : "Oatis here! Is there anything I can help you with?"}}
     </div>
-    <span>
+    <span *ngIf="notifications.length > 0">
       {{(notifications.length > 0) ? notifications.length:""}}
     </span>
   </button>

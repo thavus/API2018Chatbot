@@ -70,10 +70,10 @@ triggers = [
       isUser : false,
       bubbles : [
       {
-        val : "Fixed My Problem"
+        val : "Fixed!"
       },
       {
-        val : "Still Having Problems"
+        val : "Create Service Now Ticket"
       },
       {
         val : "Something Else"
@@ -102,9 +102,9 @@ triggers = [
 	],
 
 	[
-		'OIM',
+		'approval','pending Service Now approval',
 		{
-		  val : "You have a pending approval in OIM for Jay Leon that has been outstanding for 10 days. Do you want to approve it?",
+		  val : "You have a pending approval in Service Now for Jay Leon that has been outstanding for 10 days. Do you want to approve it?",
 		  isUser : false,
 		  bubbles : [
 			{

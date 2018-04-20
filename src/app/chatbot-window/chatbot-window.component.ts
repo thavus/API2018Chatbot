@@ -73,7 +73,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
       this.scrollToBottom();
     if(this.OIMNeedsPushed){
-      this.notifications.push({ val: "You have a pending OIM approval"});
+      this.notifications.push({ val: "You have a pending Service Now approval"});
       this.OIMNeedsPushed = false;
     }
   }
@@ -128,8 +128,23 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     this.aKey3 = true;
     this.aKey2 = false;
     this.aKey1 = false;
-    if(this.notifications.length > 0){
-      this.respond(this.notifications[0].val);
+    if((this.notifications.length > 0) && this.isOpen){
+      
+      if(this.notifications.length == 1) {
+        let chat = this.respond(this.notifications[0].val);
+
+        if(typeof chat == 'undefined'){
+          this.addChat("Sorry I didn't understand, please try again", false, []);
+          return;
+        }
+        if(chat.isCard){
+          this.createCard( chat.val, chat.bubbles);
+        }
+        else {
+          this.addChat(chat.val, chat.isUser, chat.bubbles);
+        }
+      }
+      this.notifications.shift();
     }
   }
 
@@ -191,6 +206,10 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
     if(isUser){
       let chat = this.respond(val);
+      if(typeof chat == 'undefined'){
+        this.addChat("Sorry I didn't understand, please try again", isUser, []);
+        return;
+      }
       if(chat.isCard){
         this.createCard( chat.val, chat.bubbles);
       }
