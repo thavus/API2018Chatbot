@@ -115,7 +115,7 @@
 	],
 	
 	[
-	'OOO', 'out of office',
+		'OOO', 'out of office',
 		{
 		  val : "What would you like your OOO to say?",
 		  isUser : false,
