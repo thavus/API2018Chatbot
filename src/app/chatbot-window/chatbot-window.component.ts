@@ -152,7 +152,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   createTicket(){
     this.serviceNow.createTicket().subscribe(data => {
       let result = data['result'];
-      let text = "I've created your ServiceNow request. Your Incident Number is <a href=\"";
+      let text = "I've created your ServiceNow request. Your Incident Number is <a style=\"color: #fcbc04;\" href=\"";
       text += "https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=incident.do?sys_id=";
       text += result.sys_id;
       text += "\" target=\"_new\">";
