@@ -106,23 +106,26 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   respond(userText){
     //this.clearContext(userText);
-      let data = this.brain.getJSON();
-      for(let i = 0; i < data.length; i++){
-        for (let j = 0; j < data[i].length; j++) {
-            if(typeof data[i][j] == "string"){
-              if(userText.search(new RegExp(data[i][j], "i")) >= 0){
-                if(!this.isWaitingForOOO){
-                  return data[i][data[i].length - 1];
-                }else if(this.isWaitingForOOO){
+if(this.isWaitingForOOO){
+  this.isWaitingForOOO = false;
                   return {
                     val : "Ok! OOO Updated",
                     isUser : false,
                     bubbles : []
                   }
                 }
-                
-                if(userText.toLowerCase() == "ooo" || userText.toLowerCase() == "out of office"){
-                  this.isWaitingForOOO = true;
+
+      let data = this.brain.getJSON();
+      for(let i = 0; i < data.length; i++){
+        for (let j = 0; j < data[i].length; j++) {
+            if(typeof data[i][j] == "string"){
+              if(userText.search(new RegExp(data[i][j], "i")) >= 0){
+                if(!this.isWaitingForOOO){
+                  if(userText.toLowerCase() == "ooo" || userText.toLowerCase() == "out of office"){
+                    console.log("set to true");
+                    this.isWaitingForOOO = true;
+                  }
+                  return data[i][data[i].length - 1];
                 }
               }
             }
@@ -294,6 +297,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       text += "\" />";
       this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
       this.addChat(this.safeHTML, false, bubbles, true);
+      this.scrollToBottom();
   }
 
   checkEdge(event) {
