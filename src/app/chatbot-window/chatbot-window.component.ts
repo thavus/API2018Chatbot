@@ -102,7 +102,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     this.aKey2 = false;
     this.aKey1 = false;
     if(this.notifications.length > 0){
-      this.respond(this.notifications[0]);
+      this.respond(this.notifications[0].val);
     }
     if(this.OIMNeedsPushed){
       this.notifications.push({ val: "You have a pending OIM approval"});
