@@ -238,7 +238,7 @@ box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px; }
   font-size:13px;
   position:absolute;
   width: 265px;
-  height: 450px;
+  height: 500px;
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7f7f7+0,ffffff+23,ffffff+53,ffffff+82,ededed+100 */
 background: rgb(247,247,247); /* Old browsers */
 background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 23%, rgba(255,255,255,1) 53%, rgba(255,255,255,1) 82%, rgba(237,237,237,1) 100%); /* FF3.6-15 */
@@ -251,7 +251,7 @@ overflow:hidden;
 
 .drag-boundary{
   width: 100%;
-  height: 450px;
+  height: 500px;
   position: fixed;
   right: 0;
   bottom: 0;

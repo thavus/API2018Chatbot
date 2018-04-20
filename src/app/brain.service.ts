@@ -65,7 +65,7 @@ triggers = [
   [
     'trouble with skype', 'issue with skype', 'issues with skype', 'Skype equipment', 'skype',
     {
-      val : "/assets/img/SkypeCard.png",
+      val : "/assets/img/Skype Issues Resolution.svg",
       isCard : true,
       isUser : false,
       bubbles : [
