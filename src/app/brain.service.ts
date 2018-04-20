@@ -25,6 +25,15 @@ triggers = [
 	],
 
 	[
+		'remind me later',
+		{
+		  val : "Ok, I'll remind you later. What can I help you with?",
+		  isUser : false,
+		  bubbles : []
+		}
+	],
+
+	[
 		'Hi', 'Hello', 'Sup', 'Hola', 'hey', 'default',
 		{
 		  val : "Hello! I am OATIS and I am here to help you with everyday tasks here at PNC. How can I help you?",

@@ -25,7 +25,7 @@
   </div>
 <div class="autoBubbles">
   <div *ngFor="let bubble of prevTexts[prevTexts.length-1].bubbles">
-      <div (click)="addChat(bubble.val, true, '')"  class="bubble">
+      <div (click)="addChat(bubble.val, true, [])"  class="bubble">
         {{bubble.val}}
       </div>
   </div>

@@ -18,6 +18,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   @Input() aKey2: boolean;
   @Input() aKey3: boolean;
   safeHTML : any;
+  context = '';
   OIMNeedsPushed = true;
   speechRecognition = Window['webkitSpeechRecognition'];
   recognizing = false;
@@ -71,23 +72,49 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
       this.scrollToBottom();
+    if(this.OIMNeedsPushed){
+      this.notifications.push({ val: "You have a pending OIM approval"});
+      this.OIMNeedsPushed = false;
+    }
   }
 
   ngAfterViewChecked() {
       this.scrollToBottom();
   }
 
-  respond(userText){
-    let data = this.brain.getJSON();
-    for(let i = 0; i < data.length; i++){
-      for (let j = 0; j < data[i].length; j++) {
-          if(typeof data[i][j] == "string"){
-            if(userText.search(new RegExp(data[i][j], "i")) >= 0){
-              return data[i][data[i].length - 1];
-            }
-          }
+  clearContext(userText){
+
+    let data = [
+      "something else",
+      "another thing", 
+      "not this",
+      "cancel",
+      "done",
+      "finished",
+      "quit",
+      "exit",
+    ];
+    if(this.context != ''){
+      for(let i = 0; i < data.length; i++){
+        if(userText.search(new RegExp(data[i], "i")) >= 0){
+          this.context == '';
+        }
       }
     }
+  }
+
+  respond(userText){
+    //this.clearContext(userText);
+      let data = this.brain.getJSON();
+      for(let i = 0; i < data.length; i++){
+        for (let j = 0; j < data[i].length; j++) {
+            if(typeof data[i][j] == "string"){
+              if(userText.search(new RegExp(data[i][j], "i")) >= 0){
+                return data[i][data[i].length - 1];
+              }
+            }
+        }
+      }
   }
 
   scrollToBottom(): void {
@@ -103,10 +130,6 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     this.aKey1 = false;
     if(this.notifications.length > 0){
       this.respond(this.notifications[0].val);
-    }
-    if(this.OIMNeedsPushed){
-      this.notifications.push({ val: "You have a pending OIM approval"});
-      this.OIMNeedsPushed = false;
     }
   }
 
