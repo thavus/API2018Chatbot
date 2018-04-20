@@ -267,8 +267,8 @@ overflow:hidden;
     font-size:12px;
     position: absolute;
     border-radius: 5px;
-    max-width: 308px;
-    height: 40px;
+    max-width: 340px;
+    height: 60px;
     padding: 5px 5px 5px 40px;
     background-color: #fff;
     right: 0;
@@ -287,7 +287,7 @@ overflow:hidden;
   height:25px;
   width:25px;
   position: absolute;
-  top:8px;
+  top:15px;
   left: 5px;
   background: #fff url("/assets/img/bot.png") no-repeat;
   background-size: cover;
@@ -570,9 +570,10 @@ button.fixed-chatIcon div{
 button.fixed-chatIcon span{
   background-color: #fc4c9c;
     font-size: 10px;
-    position: relative;
+    position: absolute;
     color: white;
-    padding: 3px 6px;
+    padding: 2px 5px;
     border-radius: 15px;
-    top: 7px;
+    top: -3px;
+    right: -3px;
 }
