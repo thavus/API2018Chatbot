@@ -159,7 +159,18 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       text += result.number;
       text += "</a>";
       this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
-      this.addChat(this.safeHTML, false, []);
+      const bubbles = [
+        {
+          val : "Pin this"
+        },
+        {
+          val : "One more thing"
+        },
+        {
+          val : "Thanks!"
+        }
+      ]
+      this.addChat(this.safeHTML, false, bubbles);
     });
   }
 
