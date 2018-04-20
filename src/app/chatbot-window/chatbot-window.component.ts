@@ -227,6 +227,32 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       this.addChat(this.safeHTML, false, bubbles);
     });
   }
+  
+  // Uncomment when ready to start approving changes
+   /*approveChange(){
+    this.serviceNow.approveChange().subscribe(data => {
+      let result = data['result'];
+      let text = "I've approved the <a style=\"color: #fcbc04;\" href=\"";
+      text += "https://pncmelliniumfalcon.service-now.com/nav_to.do?uri=sysapproval_approver.do?sys_id=";
+      text += result.sys_id;
+      text += "\" target=\"_new\">";
+      text += Service Now request;
+      text += "</a>.";
+      this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
+      const bubbles = [
+        {
+          val : "Pin this"
+        },
+        {
+          val : "One more thing"
+        },
+        {
+          val : "Thanks!"
+        }
+      ]
+      this.addChat(this.safeHTML, false, bubbles);
+    });
+  }*/
 
   createCard(url, bubbles){
       let text = "<img width=\"215px\" src=\"";
