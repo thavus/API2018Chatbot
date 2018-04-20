@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -42,7 +42,7 @@ triggers = [
 		  ]
 		}
 	],
-	
+
 	[
 		'holidays', 'holiday',
 		{
@@ -52,7 +52,27 @@ triggers = [
 		  bubbles : []
 		}
 	],
-	
+
+  [
+    'trouble with skype', 'issue with skype', 'issues with skype', 'Skype equipment', 'skype',
+    {
+      val : "/assets/img/SkypeCard.png",
+      isCard : true,
+      isUser : false,
+      bubbles : [
+      {
+        val : "Fixed My Problem"
+      },
+      {
+        val : "Still Having Problems"
+      },
+      {
+        val : "Something Else"
+      }
+      ]
+    }
+  ],
+
 	[
 		'vacation time', 'vacation', 'pto',
 		{
@@ -71,26 +91,7 @@ triggers = [
 		  ]
 		}
 	],
-	
-	[
-		'Skype equipment', 'skype',
-		{
-		  val : "Here is how to troubleshoot this problem yourself.",
-		  isUser : false,
-		  bubbles : [
-			{
-			  val : "Fixed My Problem"
-			},
-			{
-			  val : "Still Having Problems"
-			},
-			{
-			  val : "Something Else"
-			}
-		  ]
-		}
-	],
-	
+
 	[
 		'OIM',
 		{
@@ -109,7 +110,7 @@ triggers = [
 		  ]
 		}
 	],
-	
+
 	[
 		'OOO', 'out of office',
 		{
@@ -128,7 +129,7 @@ triggers = [
 		  ]
 		}
 	],
-	
+
 	[
 		'thanks', 'thank you',
 		{
@@ -144,7 +145,7 @@ triggers = [
 		  ]
 		}
 	]
-	
+
   ];
   constructor(private http: HttpClient) {
 
