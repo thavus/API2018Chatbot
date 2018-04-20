@@ -77,15 +77,17 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       this.scrollToBottom();
   }
 
-  respond(){
+  respond(userText){
     let data = this.brain.getJSON();
-        for(let i = 0; i < data.length; i++){
-          for (let j = 0; j < data[i].length; j++) {
-              if(typeof data[i][j] == "string"){
-                console.log(data[i][j].search(new RegExp("hi", "i")));
-              }
+    for(let i = 0; i < data.length; i++){
+      for (let j = 0; j < data[i].length; j++) {
+          if(typeof data[i][j] == "string"){
+            if(userText.search(new RegExp(data[i][j], "i")) >= 0){
+              return data[i][data[i].length - 1];
+            }
           }
-        }
+      }
+    }
   }
 
   scrollToBottom(): void {
@@ -95,12 +97,13 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
   }
 
   handlePopUp(){
-    this.createTicket();
-    this.createCard('holiday', '/assets/img/card_chat_holiday.svg', [])
     this.isOpen = this.isOpen ? false : true;
     this.aKey3 = true;
     this.aKey2 = false;
     this.aKey1 = false;
+    if(this.notifications.length > 0){
+      this.respond(this.notifications[0]);
+    }
     if(this.OIMNeedsPushed){
       this.notifications.push({ val: "You have a pending OIM approval"});
       this.OIMNeedsPushed = false;
@@ -159,8 +162,20 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       isCard : isCard,
       bubbles : bubbles
     };
+
     if(this.text.val != ""){
       this.prevTexts.push(this.text);
+
+    if(isUser){
+      let chat = this.respond(val);
+      if(chat.isCard){
+        this.createCard('holiday', chat.val, chat.bubbles);
+      }
+      else {
+        this.addChat(chat.val, chat.isUser, chat.bubbles);
+      }
+    }
+
       this.inputText = "";
     }
   }

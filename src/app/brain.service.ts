@@ -25,7 +25,7 @@ triggers = [
 	],
 
 	[
-		'Hi', 'Hello', 'Sup', 'Hola', 'default',
+		'Hi', 'Hello', 'Sup', 'Hola', 'hey', 'default',
 		{
 		  val : "Hello! I am OATIS and I am here to help you with everyday tasks here at PNC. How can I help you?",
 		  isUser : false,
@@ -46,19 +46,10 @@ triggers = [
 	[
 		'holidays', 'holiday',
 		{
-		  val : "Here is the PNC Holiday Schedule for this year.",
+		  val : "/assets/img/card_chat_holiday.svg",
+		  isCard : true,
 		  isUser : false,
-		  bubbles : [
-			{
-			  val : "Last Year"
-			},
-			{
-			  val : "Next Year"
-			},
-			{
-			  val : "Something else"
-			}
-		  ]
+		  bubbles : []
 		}
 	],
 	
@@ -156,7 +147,7 @@ triggers = [
 	
   ];
   constructor(private http: HttpClient) {
-  	
+
   }
 
 	public getJSON(): any {
