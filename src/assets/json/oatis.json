@@ -16,7 +16,7 @@
       ]
     },
 
-	['Hi', 'Hello', 'Sup', 'Hola'] {
+	['Hi', 'Hello', 'Sup', 'Hola', 'default'] {
       val : "Hello! I am OATIS and I am here to help you with everyday tasks here at PNC. How can I help you?",
       isUser : false,
       bubbles : [
@@ -108,6 +108,19 @@
         },
         {
           val : "Cancel"
+        }
+      ]
+    },
+	
+	['thanks', 'thank you'] {
+      val : "You are welcome! I am here to help. :-)",
+      isUser : false,
+      bubbles : [
+        {
+          val : "Donate Spotlight points to OATIS devs."
+        },
+        {
+          val : "Maybe later..."
         }
       ]
     }
