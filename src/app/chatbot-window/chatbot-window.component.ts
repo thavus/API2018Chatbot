@@ -121,7 +121,7 @@ if(this.isWaitingForOOO){
             if(typeof data[i][j] == "string"){
               if(userText.search(new RegExp(data[i][j], "i")) >= 0){
                 if(!this.isWaitingForOOO){
-                  if(userText.toLowerCase() == "ooo" || userText.toLowerCase() == "out of office"){
+                  if(userText.search(new RegExp("ooo", "i")) >= 0 || userText.search(new RegExp("out of office", "i")) >= 0){
                     console.log("set to true");
                     this.isWaitingForOOO = true;
                   }
