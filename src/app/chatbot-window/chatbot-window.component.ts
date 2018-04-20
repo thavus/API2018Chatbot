@@ -169,7 +169,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     if(isUser){
       let chat = this.respond(val);
       if(chat.isCard){
-        this.createCard('holiday', chat.val, chat.bubbles);
+        this.createCard( chat.val, chat.bubbles);
       }
       else {
         this.addChat(chat.val, chat.isUser, chat.bubbles);
@@ -205,15 +205,12 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  createCard(type, url, bubbles){
-    if(type === 'holiday') {
+  createCard(url, bubbles){
       let text = "<img width=\"215px\" src=\"";
       text += url;
       text += "\" />";
       this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
       this.addChat(this.safeHTML, false, bubbles, true);
-    }
-
   }
 
   checkEdge(event) {

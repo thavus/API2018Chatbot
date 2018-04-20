@@ -499,11 +499,6 @@ div.contentBox div{
   max-height: 200px;
 }
 
-div.contentBox a, div.contentBox a:visited{
-  color: #fcbc04;
-  text-decoration: underline;
-}
-
 div.contentBox div.user{
   background-color: #7c849c;
   margin-left: 50px;
