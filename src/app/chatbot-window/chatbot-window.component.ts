@@ -69,21 +69,21 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
       this.scrollToBottom();
-      this.brain.getJSON().subscribe(data => {
-        console.log(data.triggers);
-        let triggers = data.triggers;
-        for(let i = 0; i < triggers.length; i++){
-          for (var word in triggers) {
-            if (triggers.hasOwnProperty(word)) {
-                console.log(word);
-              }
-            }
-        }
-      });
   }
 
   ngAfterViewChecked() {
       this.scrollToBottom();
+  }
+
+  respond(){
+    let data = this.brain.getJSON();
+        for(let i = 0; i < data.length; i++){
+          for (let j = 0; j < data[i].length; j++) {
+              if(typeof data[i][j] == "string"){
+                console.log(data[i][j].search(new RegExp("hi", "i")));
+              }
+          }
+        }
   }
 
   scrollToBottom(): void {

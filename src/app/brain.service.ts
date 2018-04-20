@@ -82,7 +82,7 @@ triggers = [
 	],
 	
 	[
-		'Skype equipment',
+		'Skype equipment', 'skype',
 		{
 		  val : "Here is how to troubleshoot this problem yourself.",
 		  isUser : false,
@@ -156,7 +156,7 @@ triggers = [
 	
   ];
   constructor(private http: HttpClient) {
-
+  	
   }
 
 	public getJSON(): any {
