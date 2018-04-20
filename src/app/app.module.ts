@@ -12,6 +12,7 @@ import { ChoosePageComponent } from './choose-page/choose-page.component';
 import { PowerlinkComponent } from './powerlink/powerlink.component';
 
 import { ServiceNowService } from './service-now.service';
+import { BrainService } from './brain.service';
 
 
 const appRoutes: Routes = [
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [ServiceNowService],
+  providers: [ServiceNowService, BrainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

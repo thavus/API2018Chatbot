@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { ServiceNowService } from '../service-now.service';
+import { BrainService } from '../brain.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 const {webkitSpeechRecognition} : IWindow = <IWindow>window;
@@ -62,7 +63,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     right: true
   };
 
-  constructor(private serviceNow: ServiceNowService, private sanitizer: DomSanitizer) {
+  constructor(private serviceNow: ServiceNowService, private sanitizer: DomSanitizer, private brain : BrainService) {
     this.speechRecognition = new webkitSpeechRecognition();
     this.speechRecognition.continuous = true;
     this.speechRecognition.interimResults = true;
@@ -74,6 +75,17 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
       this.scrollToBottom();
+  }
+
+  respond(){
+    let data = this.brain.getJSON();
+        for(let i = 0; i < data.length; i++){
+          for (let j = 0; j < data[i].length; j++) {
+              if(typeof data[i][j] == "string"){
+                console.log(data[i][j].search(new RegExp("hi", "i")));
+              }
+          }
+        }
   }
 
   scrollToBottom(): void {
@@ -163,7 +175,18 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
       text += result.number;
       text += "</a>";
       this.safeHTML = this.sanitizer.bypassSecurityTrustHtml(text);
-      this.addChat(this.safeHTML, false, []);
+      const bubbles = [
+        {
+          val : "Pin this"
+        },
+        {
+          val : "One more thing"
+        },
+        {
+          val : "Thanks!"
+        }
+      ]
+      this.addChat(this.safeHTML, false, bubbles);
     });
   }
 

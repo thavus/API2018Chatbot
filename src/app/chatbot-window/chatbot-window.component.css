@@ -436,8 +436,8 @@ input{
   overflow-y:hidden;
   white-space: nowrap;
   margin-top: 5px;
-  margin-left:5px;
-  margin-right:5px;
+  margin-left:12px;
+  margin-right:12px;
   height: 5%;
 }
 .autoBubbles > div {
@@ -544,9 +544,8 @@ div.contentBox div.user:after{
 div.contentBox div.bot.card{
   background-color: #fff;
   margin: 0;
-  margin-left: 10px;
+  margin-left: 25px;
   padding: 0;
-  padding-left: 10px;
   max-height: none;
   max-width: 215px;
 }
