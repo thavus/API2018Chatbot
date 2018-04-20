@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { ServiceNowService } from '../service-now.service';
+import { BrainService } from '../brain.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 const {webkitSpeechRecognition} : IWindow = <IWindow>window;
@@ -60,7 +61,7 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
     right: true
   };
 
-  constructor(private serviceNow: ServiceNowService, private sanitizer: DomSanitizer) {
+  constructor(private serviceNow: ServiceNowService, private sanitizer: DomSanitizer, private brain : BrainService) {
     this.speechRecognition = new webkitSpeechRecognition();
     this.speechRecognition.continuous = true;
     this.speechRecognition.interimResults = true;
@@ -68,6 +69,17 @@ export class ChatbotWindowComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
       this.scrollToBottom();
+      this.brain.getJSON().subscribe(data => {
+        console.log(data.triggers);
+        let triggers = data.triggers;
+        for(let i = 0; i < triggers.length; i++){
+          for (var word in triggers) {
+            if (triggers.hasOwnProperty(word)) {
+                console.log(word);
+              }
+            }
+        }
+      });
   }
 
   ngAfterViewChecked() {

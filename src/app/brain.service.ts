@@ -1,29 +1,10 @@
-{
-  "triggers": [{
-      "hi": {
-        "val": "hello"
-      },
-      "hello": {
-        "val": "hello"
-      },
-      "sup": {
-        "val": "hello"
-      }
-    },
-    {
-      "bye": {
-        "val": "bye"
-      },
-      "go away": {
-        "val": "okay!"
-      },
-      "I'm done": {
-        "val": "you got it"
-      }
-    }
-  ]
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; 
+import { Observable } from 'rxjs/Observable';
 
-<<<<<<< Updated upstream
+@Injectable()
+export class BrainService {
+triggers = [
 	[
 		'managing risk in agile',
 		{
@@ -174,6 +155,12 @@
 	]
 	
   ];
-=======
+  constructor(private http: HttpClient) {
+
+  }
+
+	public getJSON(): any {
+		return this.triggers;
+	}
+
 }
->>>>>>> Stashed changes
