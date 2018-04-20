@@ -14,7 +14,9 @@ const httpOptions = {
 export class ServiceNowService {
 
 	data: any;
+	data2: any;
 	url: string;
+	url2: string;
 
 	constructor(private http: HttpClient) { 
 		this.data = {
@@ -22,10 +24,19 @@ export class ServiceNowService {
 			short_description: 'Having Skype issues in a conference room'
 		};
 		this.url = "https://pncmelliniumfalcon.service-now.com/api/now/table/incident"
+		this.data2 = {
+			approver: 'Darth.vader',
+			state: 'Approved'
+		};
+		this.url2 = "https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver/ee558ac6dba91b00e00e78dabf961907"
 	}
 
   createTicket(){
   	return this.http.post(this.url, this.data, httpOptions);
+  }
+  
+  approveChange(){
+  	return this.http.put(this.url2, this.data2, httpOptions);
   }
 
 }
